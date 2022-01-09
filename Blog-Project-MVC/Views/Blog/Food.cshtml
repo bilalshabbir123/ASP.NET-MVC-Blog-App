@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Blog_Project_MVC.Blog>
+
+@{
+    ViewBag.Title = "Food";
+}
+
+<h2>Food Articles</h2>
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Btitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bcatagory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bdec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Burl)
+            </th>
+            <th></th>
+        </tr>*@
+
+
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Bid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Bid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Bid })
+        </td>*@
+    <!--</tr>
+    }-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <b style="color:brown;font-size:large;"> @Html.DisplayFor(modelItem => item.Btitle)</b>
+                <p>    @Html.DisplayFor(modelItem => item.Bdec)</p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="~/Blog/@item.Burl">Read Complete Article</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category <a href="~/Blog/@item.Bcatagory">@Html.DisplayFor(modelItem => item.Bcatagory)</a>
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
